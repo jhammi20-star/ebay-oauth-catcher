@@ -1,0 +1,179 @@
+<title>eBay Connect</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@600;700&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  :root {
+    --bg: #f4f5f7;
+    --card: #ffffff;
+    --text: #1c1e21;
+    --muted: #6b6f76;
+    --accent: #0071e3;
+    --accent-ink: #ffffff;
+    --border: #e1e3e8;
+    --code-bg: #f4f5f7;
+    --ok: #146c2e;
+    --ok-bg: #d1f4dd;
+    --err: #8a1c1c;
+    --err-bg: #f4d1d1;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #17181a;
+      --card: #212226;
+      --text: #f0f1f3;
+      --muted: #9a9da3;
+      --border: #34363b;
+      --code-bg: #191a1c;
+      --ok-bg: #113220;
+      --err-bg: #3a1414;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #17181a;
+    --card: #212226;
+    --text: #f0f1f3;
+    --muted: #9a9da3;
+    --border: #34363b;
+    --code-bg: #191a1c;
+    --ok-bg: #113220;
+    --err-bg: #3a1414;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, "Segoe UI", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 24px;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 36px 32px;
+    max-width: 440px;
+    width: 100%;
+    text-align: center;
+  }
+  .mark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--accent);
+    color: var(--accent-ink);
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+  h1 {
+    font-family: "Libre Franklin", -apple-system, "Segoe UI", sans-serif;
+    font-weight: 700;
+    font-size: 19px;
+    margin: 0 0 8px;
+    text-wrap: balance;
+  }
+  p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.55;
+    margin: 0;
+  }
+  .code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 14px;
+    background: var(--code-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    word-break: break-all;
+    margin: 18px 0;
+    user-select: all;
+    display: none;
+  }
+  .pill {
+    display: inline-block;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.03em;
+    padding: 3px 9px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+  }
+  .pill.ok { background: var(--ok-bg); color: var(--ok); }
+  .pill.err { background: var(--err-bg); color: var(--err); }
+  button {
+    background: var(--accent);
+    color: var(--accent-ink);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 4px;
+  }
+  button:hover { opacity: 0.92; }
+  button:active { opacity: 0.8; }
+  button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .hint {
+    font-size: 11px;
+    margin-top: 16px;
+    color: var(--muted);
+  }
+</style>
+
+<div class="card">
+  <div class="mark">eB</div>
+  <div id="statusPill"></div>
+  <h1 id="title">Waiting for eBay&hellip;</h1>
+  <p id="subtitle">This page just hands the authorization code back to you — it doesn't store or send it anywhere.</p>
+  <div id="codeBox" class="code"></div>
+  <button id="copyBtn" style="display:none">Copy code</button>
+  <p class="hint" id="hint"></p>
+</div>
+
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const code = params.get('code');
+  const error = params.get('error');
+  const title = document.getElementById('title');
+  const subtitle = document.getElementById('subtitle');
+  const box = document.getElementById('codeBox');
+  const btn = document.getElementById('copyBtn');
+  const hint = document.getElementById('hint');
+  const pill = document.getElementById('statusPill');
+
+  function setPill(text, cls) {
+    pill.innerHTML = '<span class="pill ' + cls + '">' + text + '</span>';
+  }
+
+  if (error) {
+    setPill('DECLINED', 'err');
+    title.textContent = 'eBay declined the request';
+    subtitle.textContent = params.get('error_description') || error;
+  } else if (code) {
+    setPill('CONNECTED', 'ok');
+    title.textContent = 'Connected!';
+    subtitle.textContent = 'Copy this code and paste it into the eBay Auto Print app:';
+    box.style.display = 'block';
+    box.textContent = code;
+    btn.style.display = 'inline-block';
+    btn.addEventListener('click', () => {
+      navigator.clipboard.writeText(code).then(() => { btn.textContent = 'Copied!'; });
+    });
+    hint.textContent = 'This code expires in about 5 minutes — paste it in now.';
+  } else {
+    setPill('NO CODE', 'err');
+    title.textContent = 'No code found';
+    subtitle.textContent = "This page is meant to be reached via eBay's sign-in redirect, not opened directly.";
+  }
+</script>
