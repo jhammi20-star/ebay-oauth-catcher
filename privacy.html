@@ -1,0 +1,76 @@
+<!doctype html>
+<title>PackPrint Privacy Policy</title>
+<style>
+  :root { --bg:#f7f7f8; --card:#fff; --text:#1d1d1f; --muted:#6b6b70; --accent:#0071e3; --border:#e3e3e6; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --border:#38383b; }
+  }
+  :root[data-theme="dark"] { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --border:#38383b; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI",sans-serif; margin:0; padding:32px 20px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:32px; max-width:640px; margin:0 auto; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  h2 { font-size:15px; margin:28px 0 8px; }
+  .updated { color:var(--muted); font-size:12px; margin:0 0 24px; }
+  p, li { font-size:14px; line-height:1.6; color:var(--text); }
+  ul { padding-left:20px; margin:8px 0; }
+  a { color:var(--accent); }
+</style>
+<div class="card">
+  <h1>PackPrint Privacy Policy</h1>
+  <p class="updated">Last updated: September 5, 2026</p>
+
+  <p>PackPrint is a desktop app that watches your eBay orders and automatically prints a
+  packing slip once payment clears. This page explains what data it touches, and what it does
+  with it.</p>
+
+  <h2>What stays on your device</h2>
+  <ul>
+    <li>Your eBay sign-in tokens (used to read your orders)</li>
+    <li>Your printer and paper size preferences</li>
+    <li>A list of order IDs already printed, so you don't get duplicates</li>
+    <li>Your order and buyer shipping details, fetched directly from eBay to print a packing
+      slip</li>
+  </ul>
+  <p>All of this is stored only in PackPrint's local configuration file on your computer. None
+  of it is uploaded to any server we operate.</p>
+
+  <h2>What passes through our servers</h2>
+  <p>Because eBay requires every app to use one registered developer keyset (rather than each
+  user creating their own), PackPrint sends the following to a small relay service we operate,
+  solely to complete eBay's sign-in process:</p>
+  <ul>
+    <li>The one-time authorization code from eBay when you first connect</li>
+    <li>Your eBay access token, periodically, to refresh it before it expires</li>
+  </ul>
+  <p>The relay forwards these directly to eBay's own servers and returns eBay's response. It
+  does not log, store, or retain your tokens, your eBay account information, or any order or
+  buyer data -- your actual order details never pass through our servers at all; PackPrint's
+  Sell Fulfillment API requests go directly from your device to <code>api.ebay.com</code>.</p>
+
+  <h2>Third parties</h2>
+  <ul>
+    <li><strong>eBay Inc.</strong> -- your orders and account are governed by
+      <a href="https://www.ebay.com/help/policies/member-behaviour-policies/user-privacy-notice-privacy-policy?id=4260">eBay's own Privacy Policy</a>.</li>
+    <li><strong>Cloudflare, Inc.</strong> -- hosts the OAuth relay described above as
+      infrastructure only; we do not use it to store or analyze your data.</li>
+  </ul>
+
+  <h2>What we don't do</h2>
+  <p>PackPrint does not include analytics or tracking, does not sell or share your data, and
+  does not access your buyers' information for anything other than printing the packing slip
+  you configure.</p>
+
+  <h2>License activation</h2>
+  <p>A PackPrint license key contains only the name or email address it was issued to and an
+  expiration date. It is not used to track usage or collect any other information.</p>
+
+  <h2>Children's privacy</h2>
+  <p>PackPrint is a business tool for eBay sellers and is not directed at children under 13.</p>
+
+  <h2>Changes to this policy</h2>
+  <p>If this policy changes, the updated version will be posted at this same URL with a new
+  "Last updated" date.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this policy: <a href="mailto:jhammi20@gmail.com">jhammi20@gmail.com</a></p>
+</div>

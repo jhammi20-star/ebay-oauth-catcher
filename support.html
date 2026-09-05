@@ -1,0 +1,42 @@
+<!doctype html>
+<title>PackPrint Support</title>
+<style>
+  :root { --bg:#f7f7f8; --card:#fff; --text:#1d1d1f; --muted:#6b6b70; --accent:#0071e3; --border:#e3e3e6; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --border:#38383b; }
+  }
+  :root[data-theme="dark"] { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --border:#38383b; }
+  body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI",sans-serif; margin:0; padding:32px 20px; }
+  .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:32px; max-width:640px; margin:0 auto; }
+  h1 { font-size:22px; margin:0 0 4px; }
+  h2 { font-size:15px; margin:28px 0 8px; }
+  .tagline { color:var(--muted); font-size:13px; margin:0 0 24px; }
+  p, li { font-size:14px; line-height:1.6; color:var(--text); }
+  ul { padding-left:20px; margin:8px 0; }
+  a { color:var(--accent); }
+  .btn { display:inline-block; background:var(--accent); color:white; text-decoration:none; border-radius:8px; padding:10px 18px; font-size:13px; margin-top:6px; }
+</style>
+<div class="card">
+  <h1>PackPrint Support</h1>
+  <p class="tagline">Watches your eBay orders and auto-prints packing slips the moment payment clears.</p>
+
+  <h2>Getting started</h2>
+  <p>Open PackPrint, click <strong>"Sign in with eBay"</strong> in the eBay Connection section,
+  approve access, and paste the code back in. Then pick your packing-list printer under
+  <strong>Printer</strong> and click <strong>Test Print</strong> to confirm it looks right.</p>
+
+  <h2>Common questions</h2>
+  <p><strong>Nothing is printing.</strong> Check the Activity log at the bottom of the app --
+  it explains why each check was skipped (not connected, printer not set, or polling paused).
+  Make sure "Pause / Resume Auto-Polling" reads "Running," not "Paused."</p>
+
+  <p><strong>My eBay connection stopped working.</strong> Click "Reconnect / Change" under
+  eBay Connection in Settings and sign in again -- eBay sign-ins periodically need renewing.</p>
+
+  <p><strong>The packing slip is the wrong size.</strong> Check Paper Size under the Printer
+  section matches the label stock loaded in your printer.</p>
+
+  <h2>Contact us</h2>
+  <p>Can't find what you need? Email us and we'll help you sort it out.</p>
+  <a class="btn" href="mailto:jhammi20@gmail.com">jhammi20@gmail.com</a>
+</div>
