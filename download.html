@@ -1,5 +1,5 @@
 <!doctype html>
-<title>Download PackPrint for Windows</title>
+<title>Download PackPrint</title>
 <style>
   :root { --bg:#f7f7f8; --card:#fff; --text:#1d1d1f; --muted:#6b6b70; --accent:#0071e3; --border:#e3e3e6; }
   @media (prefers-color-scheme: dark) {
@@ -9,7 +9,7 @@
   body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI",sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; padding:20px; box-sizing:border-box; }
   .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:36px; max-width:480px; width:100%; text-align:center; }
   h1 { font-size:22px; margin:0 0 6px; }
-  .tagline { color:var(--muted); font-size:14px; margin:0 0 28px; line-height:1.5; }
+  .tagline { color:var(--muted); font-size:14px; margin:0 0 22px; line-height:1.5; }
   .btn { display:inline-block; text-decoration:none; border-radius:10px; padding:14px 28px; font-size:15px; font-weight:600; }
   .btn-primary { background:var(--accent); color:white; }
   .btn-secondary { background:transparent; color:var(--text); border:1px solid var(--border); margin-top:10px; }
@@ -21,25 +21,71 @@
   .steps h2 { font-size:13px; text-transform:uppercase; letter-spacing:0.04em; color:var(--muted); margin:0 0 12px; }
   .steps ol { padding-left:20px; margin:0; font-size:13px; line-height:1.7; color:var(--text); }
   .steps code { background:var(--bg); border:1px solid var(--border); border-radius:4px; padding:1px 5px; font-size:12px; }
+  .platforms { display:flex; gap:6px; background:var(--bg); border:1px solid var(--border); border-radius:10px; padding:4px; margin-bottom:26px; }
+  .platform-btn { flex:1; border:none; background:transparent; color:var(--muted); font:inherit; font-weight:600; font-size:13px; padding:9px 0; border-radius:7px; cursor:pointer; }
+  .platform-btn.active { background:var(--card); color:var(--text); box-shadow:0 1px 3px rgba(0,0,0,0.12); }
+  [hidden] { display:none !important; }
 </style>
 <div class="card">
-  <h1>PackPrint for Windows</h1>
-  <p class="tagline">Watches your eBay orders and auto-prints packing slips the moment payment clears.</p>
+  <div class="platforms">
+    <button class="platform-btn" id="tabWindows" onclick="showPlatform('windows')">Windows</button>
+    <button class="platform-btn" id="tabMac" onclick="showPlatform('mac')">Mac</button>
+  </div>
 
-  <a class="btn btn-primary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
-  <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
+  <div id="panelWindows">
+    <h1>PackPrint for Windows</h1>
+    <p class="tagline">Watches your eBay orders and auto-prints packing slips the moment payment clears.</p>
 
-  <div class="divider">already subscribed?</div>
-  <a class="btn btn-secondary" href="https://github.com/jhammi20-star/ebay-oauth-catcher/releases/download/packprint-v0.1.0/PackPrint.Setup.0.1.0.exe">Download the installer</a>
-  <p class="price">v0.1.0 &middot; Windows 10/11, 64-bit</p>
+    <a class="btn btn-primary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
+    <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
 
-  <div class="steps">
-    <h2>Setup</h2>
-    <ol>
-      <li>Subscribe above -- your license key arrives by email within a minute or two.</li>
-      <li>Download and run <code>PackPrint Setup 0.1.0.exe</code>.</li>
-      <li>Open PackPrint. On first launch, paste the key from your email into the activation screen.</li>
-      <li>Click <strong>Sign in with eBay</strong> to connect your seller account, then set up your printer under <strong>Printer</strong>.</li>
-    </ol>
+    <div class="divider">already subscribed?</div>
+    <a class="btn btn-secondary" href="https://github.com/jhammi20-star/ebay-oauth-catcher/releases/download/packprint-v1.0.3/PackPrint.Setup.1.0.3.exe">Download the installer</a>
+    <p class="price">v1.0.3 &middot; Windows 10/11, 64-bit</p>
+
+    <div class="steps">
+      <h2>Setup</h2>
+      <ol>
+        <li>Subscribe above -- your license key arrives by email within a minute or two.</li>
+        <li>Download and run <code>PackPrint Setup 1.0.3.exe</code>.</li>
+        <li>Open PackPrint. On first launch, paste the key from your email into the activation screen.</li>
+        <li>Click <strong>Sign in with eBay</strong> to connect your seller account, then set up your printer under <strong>Printer</strong>.</li>
+      </ol>
+    </div>
+  </div>
+
+  <div id="panelMac" hidden>
+    <h1>PackPrint for Mac</h1>
+    <p class="tagline">Watches your eBay orders and auto-prints packing slips the moment payment clears.</p>
+
+    <a class="btn btn-primary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
+    <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
+
+    <div class="divider">already subscribed?</div>
+    <a class="btn btn-secondary" href="https://github.com/jhammi20-star/ebay-oauth-catcher/releases/download/packprint-v1.0.3/PackPrint-1.0.3.dmg">Download the DMG</a>
+    <p class="price">v1.0.3 &middot; macOS 12 Monterey or later, Apple Silicon &amp; Intel</p>
+
+    <div class="steps">
+      <h2>Setup</h2>
+      <ol>
+        <li>Subscribe above -- your license key arrives by email within a minute or two.</li>
+        <li>Open <code>PackPrint-1.0.3.dmg</code> and drag PackPrint into Applications.</li>
+        <li>Open PackPrint. On first launch, paste the key from your email into the activation screen.</li>
+        <li>Click <strong>Sign in with eBay</strong> to connect your seller account, then set up your printer under <strong>Printer</strong>.</li>
+      </ol>
+      <p style="color:var(--muted); margin-top:14px;">Also coming to the Mac App Store -- currently in review. This direct download is the same app, signed and notarized by Apple.</p>
+    </div>
   </div>
 </div>
+<script>
+  function showPlatform(p) {
+    document.getElementById('panelWindows').hidden = p !== 'windows';
+    document.getElementById('panelMac').hidden = p !== 'mac';
+    document.getElementById('tabWindows').classList.toggle('active', p === 'windows');
+    document.getElementById('tabMac').classList.toggle('active', p === 'mac');
+    if (location.hash !== '#' + p) history.replaceState(null, '', '#' + p);
+  }
+  const hash = location.hash.replace('#', '');
+  const isMac = /Mac|iPhone|iPad/.test(navigator.platform) || /Macintosh/.test(navigator.userAgent);
+  showPlatform(hash === 'mac' || hash === 'windows' ? hash : (isMac ? 'mac' : 'windows'));
+</script>
