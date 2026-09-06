@@ -1,11 +1,11 @@
 <!doctype html>
 <title>Download PackPrint</title>
 <style>
-  :root { --bg:#f7f7f8; --card:#fff; --text:#1d1d1f; --muted:#6b6b70; --accent:#0071e3; --good:#1a7f37; --border:#e3e3e6; }
+  :root { --bg:#f7f7f8; --card:#fff; --text:#1d1d1f; --muted:#6b6b70; --accent:#0071e3; --good:#1a7f37; --sale:#c2570a; --border:#e3e3e6; }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --good:#4ade80; --border:#38383b; }
+    :root:not([data-theme="light"]) { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --good:#4ade80; --sale:#f0a02c; --border:#38383b; }
   }
-  :root[data-theme="dark"] { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --good:#4ade80; --border:#38383b; }
+  :root[data-theme="dark"] { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --good:#4ade80; --sale:#f0a02c; --border:#38383b; }
   body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI",sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; padding:20px; box-sizing:border-box; }
   .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:36px; max-width:480px; width:100%; text-align:center; }
   h1 { font-size:22px; margin:0 0 6px; }
@@ -13,6 +13,8 @@
   .trial-badges { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin:0 0 22px; }
   .trial-badges span { display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600; color:var(--muted); }
   .trial-badges span::before { content:"✓"; color:var(--good); font-weight:700; }
+  .new-price-badge { display:block; font-size:11px; font-weight:700; letter-spacing:0.04em; text-transform:uppercase; color:var(--sale); margin:16px 0 6px; }
+  .old-price { color:var(--muted); text-decoration:line-through; margin-right:4px; }
   .btn { display:inline-block; text-decoration:none; border-radius:10px; padding:14px 28px; font-size:15px; font-weight:600; }
   .btn-primary { background:var(--accent); color:white; }
   .btn-secondary { background:transparent; color:var(--text); border:1px solid var(--border); margin-top:10px; }
@@ -47,7 +49,8 @@
     <p class="price">v1.1.1 &middot; Windows 10/11, 64-bit</p>
 
     <div class="divider">ready to keep it?</div>
-    <a class="btn btn-secondary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
+    <div class="new-price-badge">New lower price!</div>
+    <a class="btn btn-secondary" href="https://buy.stripe.com/bJebJ12gwdjF8mBcVwabK01">Subscribe -- <span class="old-price">$14.99</span>$4.99/mo</a>
     <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
 
     <div class="steps">
@@ -72,7 +75,8 @@
     <p class="price">v1.1.1 &middot; macOS 12 Monterey or later, Apple Silicon &amp; Intel</p>
 
     <div class="divider">ready to keep it?</div>
-    <a class="btn btn-secondary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
+    <div class="new-price-badge">New lower price!</div>
+    <a class="btn btn-secondary" href="https://buy.stripe.com/bJebJ12gwdjF8mBcVwabK01">Subscribe -- <span class="old-price">$14.99</span>$4.99/mo</a>
     <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
 
     <div class="steps">
