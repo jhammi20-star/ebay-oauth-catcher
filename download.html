@@ -1,15 +1,18 @@
 <!doctype html>
 <title>Download PackPrint</title>
 <style>
-  :root { --bg:#f7f7f8; --card:#fff; --text:#1d1d1f; --muted:#6b6b70; --accent:#0071e3; --border:#e3e3e6; }
+  :root { --bg:#f7f7f8; --card:#fff; --text:#1d1d1f; --muted:#6b6b70; --accent:#0071e3; --good:#1a7f37; --border:#e3e3e6; }
   @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --border:#38383b; }
+    :root:not([data-theme="light"]) { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --good:#4ade80; --border:#38383b; }
   }
-  :root[data-theme="dark"] { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --border:#38383b; }
+  :root[data-theme="dark"] { --bg:#161616; --card:#232325; --text:#f2f2f3; --muted:#9a9a9e; --good:#4ade80; --border:#38383b; }
   body { background:var(--bg); color:var(--text); font-family:-apple-system,"Segoe UI",sans-serif; display:flex; align-items:center; justify-content:center; min-height:100vh; margin:0; padding:20px; box-sizing:border-box; }
   .card { background:var(--card); border:1px solid var(--border); border-radius:14px; padding:36px; max-width:480px; width:100%; text-align:center; }
   h1 { font-size:22px; margin:0 0 6px; }
-  .tagline { color:var(--muted); font-size:14px; margin:0 0 22px; line-height:1.5; }
+  .tagline { color:var(--muted); font-size:14px; margin:0 0 16px; line-height:1.5; }
+  .trial-badges { display:flex; flex-wrap:wrap; justify-content:center; gap:14px; margin:0 0 22px; }
+  .trial-badges span { display:inline-flex; align-items:center; gap:5px; font-size:12px; font-weight:600; color:var(--muted); }
+  .trial-badges span::before { content:"✓"; color:var(--good); font-weight:700; }
   .btn { display:inline-block; text-decoration:none; border-radius:10px; padding:14px 28px; font-size:15px; font-weight:600; }
   .btn-primary { background:var(--accent); color:white; }
   .btn-secondary { background:transparent; color:var(--text); border:1px solid var(--border); margin-top:10px; }
@@ -35,21 +38,24 @@
   <div id="panelWindows">
     <h1>PackPrint for Windows</h1>
     <p class="tagline">Watches your eBay orders and auto-prints packing slips the moment payment clears.</p>
+    <div class="trial-badges">
+      <span>No obligation 7-day free trial</span>
+      <span>No credit card required</span>
+    </div>
 
-    <a class="btn btn-primary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
-    <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
-
-    <div class="divider">already subscribed?</div>
-    <a class="btn btn-secondary" href="https://github.com/jhammi20-star/ebay-oauth-catcher/releases/download/packprint-v1.0.3/PackPrint.Setup.1.0.3.exe">Download the installer</a>
+    <a class="btn btn-primary" href="https://github.com/jhammi20-star/ebay-oauth-catcher/releases/download/packprint-v1.0.3/PackPrint.Setup.1.0.3.exe">Download for Windows</a>
     <p class="price">v1.0.3 &middot; Windows 10/11, 64-bit</p>
+
+    <div class="divider">ready to keep it?</div>
+    <a class="btn btn-secondary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
+    <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
 
     <div class="steps">
       <h2>Setup</h2>
       <ol>
-        <li>Subscribe above -- your license key arrives by email within a minute or two.</li>
-        <li>Download and run <code>PackPrint Setup 1.0.3.exe</code>.</li>
-        <li>Open PackPrint. On first launch, paste the key from your email into the activation screen.</li>
+        <li>Download and run <code>PackPrint Setup 1.0.3.exe</code> -- it works free for 7 days, no license key or card needed.</li>
         <li>Click <strong>Sign in with eBay</strong> to connect your seller account, then set up your printer under <strong>Printer</strong>.</li>
+        <li>Want to keep using it after your trial? Subscribe above -- your license key arrives by email within a minute or two, ready to paste into the activation screen.</li>
       </ol>
     </div>
   </div>
@@ -57,21 +63,24 @@
   <div id="panelMac" hidden>
     <h1>PackPrint for Mac</h1>
     <p class="tagline">Watches your eBay orders and auto-prints packing slips the moment payment clears.</p>
+    <div class="trial-badges">
+      <span>No obligation 7-day free trial</span>
+      <span>No credit card required</span>
+    </div>
 
-    <a class="btn btn-primary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
-    <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
-
-    <div class="divider">already subscribed?</div>
-    <a class="btn btn-secondary" href="https://github.com/jhammi20-star/ebay-oauth-catcher/releases/download/packprint-v1.0.3/PackPrint-1.0.3.dmg">Download the DMG</a>
+    <a class="btn btn-primary" href="https://github.com/jhammi20-star/ebay-oauth-catcher/releases/download/packprint-v1.0.3/PackPrint-1.0.3.dmg">Download for Mac</a>
     <p class="price">v1.0.3 &middot; macOS 12 Monterey or later, Apple Silicon &amp; Intel</p>
+
+    <div class="divider">ready to keep it?</div>
+    <a class="btn btn-secondary" href="https://buy.stripe.com/5kQeVdcVaa7tauJ1cOabK00">Subscribe -- $14.99/mo</a>
+    <p class="price">Cancel anytime. Your license key is emailed right after checkout.</p>
 
     <div class="steps">
       <h2>Setup</h2>
       <ol>
-        <li>Subscribe above -- your license key arrives by email within a minute or two.</li>
-        <li>Open <code>PackPrint-1.0.3.dmg</code> and drag PackPrint into Applications.</li>
-        <li>Open PackPrint. On first launch, paste the key from your email into the activation screen.</li>
+        <li>Open <code>PackPrint-1.0.3.dmg</code> and drag PackPrint into Applications -- it works free for 7 days, no license key or card needed.</li>
         <li>Click <strong>Sign in with eBay</strong> to connect your seller account, then set up your printer under <strong>Printer</strong>.</li>
+        <li>Want to keep using it after your trial? Subscribe above -- your license key arrives by email within a minute or two, ready to paste into the activation screen.</li>
       </ol>
       <p style="color:var(--muted); margin-top:14px;">Also coming to the Mac App Store -- currently in review. This direct download is the same app, signed and notarized by Apple.</p>
     </div>
